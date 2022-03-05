@@ -19,6 +19,10 @@ class Settings:
     def show(self):
         pprint(self.params)
 
+    def export(self, parent):
+        ''' Be careful with this one :) '''
+        parent.update(self.params)
+
     def __str__(self):
         return pformat(self.params)
 
