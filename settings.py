@@ -1,5 +1,6 @@
 from copy import deepcopy, copy
 from pprint import pprint, pformat
+from contextlib import contextmanager
 import subprocess
 
 class Settings:
@@ -22,6 +23,15 @@ class Settings:
     def export(self, parent):
         ''' Be careful with this one :) '''
         parent.update(self.params)
+
+    @contextmanager
+    def context(self, **kwargs):
+        backups = {k : self.params[k] for k in kwargs}
+        try:
+            self.update(**kwargs)
+            yield
+        finally:
+            self.update(**backups)
 
     def __str__(self):
         return pformat(self.params)
