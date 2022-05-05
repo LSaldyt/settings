@@ -6,7 +6,7 @@ import subprocess
 class Settings:
     def __init__(self, **kwargs):
         self.params = dict(**kwargs)
-        self.params['version'] = subprocess.check_output(['git', 'describe', '--always']).strip()
+        self.params['version'] = str(subprocess.check_output(['git', 'describe', '--always']).strip().decode('utf-8'))
 
     def update(self, **kwargs):
         self.params.update(**kwargs)

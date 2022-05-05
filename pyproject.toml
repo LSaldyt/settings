@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "settings"
-version = "0.1.0"
+version = "0.1.1"
 description = "A simple settings class"
 authors = ["LSaldyt <lucassaldyt@gmail.com>"]
 license = "MIT"
